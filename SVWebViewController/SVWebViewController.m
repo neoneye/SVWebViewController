@@ -194,6 +194,8 @@
         toolbar.barStyle = self.navigationController.navigationBar.barStyle;
         toolbar.tintColor = self.navigationController.navigationBar.tintColor;
         self.navigationItem.rightBarButtonItems = items.reverseObjectEnumerator.allObjects;
+		toolbar.translucent = self.navigationController.navigationBar.translucent;
+		if ([toolbar respondsToSelector:@selector(setBarTintColor:)]) toolbar.barTintColor = self.navigationController.navigationBar.barTintColor;
     }
     
     else {
@@ -213,6 +215,8 @@
         self.navigationController.toolbar.tintColor = self.navigationController.navigationBar.tintColor;
         self.toolbarItems = items;
     }
+		self.navigationController.toolbar.translucent = self.navigationController.navigationBar.translucent;
+		if ([self.navigationController.toolbar respondsToSelector:@selector(setBarTintColor:)]) self.navigationController.toolbar.barTintColor = self.navigationController.navigationBar.barTintColor;
 }
 
 #pragma mark - UIWebViewDelegate
